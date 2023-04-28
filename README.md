@@ -18,18 +18,19 @@ I have 3 tables which are ; CustomerData, Category and Payment
 ### Select the data that I am going to use
 
 **CustomerData**
-SalesData Table
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235130053-f6eeb9a0-cc1d-4c9b-8260-dba5d7e331b6.png)
 
  
 
 **Category**
-Seller Table
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235130080-8f1210ba-fec6-47b3-be16-8ba8c6368ade.png)
 
 
 **Payment**
-Type Table
 
 ![image](https://user-images.githubusercontent.com/129844542/235130367-4be5096b-e997-402b-b977-59b783a1459b.png)
 
