@@ -1,4 +1,4 @@
-# TurkeyCustomerAnalysis
+# Turkey Customer Analysis
 **Data Exploratory using SQL**
 
 
