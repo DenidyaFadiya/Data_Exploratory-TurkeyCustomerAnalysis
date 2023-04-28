@@ -7,7 +7,7 @@ In this Project I will be exploring the data to see the analysis on Turkey Custo
 ## Full Query for Data Exploratory Project
 **Check the Full Query for Data Exploratory Project [here](https://github.com/DenidyaFadiya/Data_Exploratory-TurkeyCustomerAnalysis/tree/main).**
 
-In this Data Exploratory project I will be cleaning data that I took from [Kaggle Data Source]([https://www.kaggle.com/datasets/dansbecker/melbourne-housing-snapshot](https://www.kaggle.com/datasets/mehmettahiraslan/customer-shopping-dataset)).
+In this Data Exploratory project I will be cleaning data that I took from [Kaggle Data Source](https://www.kaggle.com/datasets/mehmettahiraslan/customer-shopping-dataset).
 
 ## Exploratory Data Project
 
