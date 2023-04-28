@@ -1,0 +1,287 @@
+
+--Turkey Sales Data Exploration
+
+--select the database that we are going to be using
+
+use TurkeySales
+
+--select the data that we are going to be using
+
+select *
+from dbo.customerdata
+order by invoice_no
+
+
+-- change the category to the data that represents it by using this query,
+-- but i will not do it since i will use join later
+
+select invoice_no, category_id,
+case
+	when Category_Id = 'a' then 'Clothing'
+	when Category_Id = 'b' then 'Shoes'
+	when Category_Id = 'c' then 'Books'
+	when Category_Id = 'd' then 'Cosmetics'
+	when Category_Id = 'e' then 'Food and Beverage'
+	when Category_Id = 'f' then 'Toys'
+	when Category_Id = 'g' then 'Technology'
+	when Category_Id = 'h' then 'Shoes'
+	else 'Souvernir'
+end as CategoryFixed
+from dbo.CustomerData
+order by invoice_no
+
+
+--updating the age group 
+
+select age,
+case
+	when age < 26 then 'Young Adult'
+	when age < 50 then 'Middle Age Adult'
+	when age < 61 then 'Senior Adult'
+	else 'Senior'
+end as AgeGroup
+from dbo.CustomerData
+
+
+ALTER TABLE dbo.CustomerData
+Add Age_Group Nvarchar(255);
+
+
+Update dbo.CustomerData
+SET Age_Group = 
+case
+	when age < 26 then 'Young Adult'
+	when age < 50 then 'Middle Age Adult'
+	when age < 61 then 'Senior Adult'
+	else 'Senior'
+end
+from dbo.CustomerData
+
+select *
+from dbo.CustomerData
+
+
+--join all of the tables and specify which columns to be selected
+
+select invoice_no,
+		Inv_date,
+		gender, 
+		age, 
+		price, 
+		category,
+		quantity,
+		payment_method, 
+		Shopping_mall
+from dbo.customerdata cus
+join dbo.Category cat
+	on Cat.category_id = Cus.category_id
+join dbo.payment pay
+	on pay.payment_id = cus.payment_id
+
+
+
+
+-- total amount spent
+
+select SUM(price) as TotalSpent
+from dbo.customerdata
+
+
+--calculating total order and amount spent by gender 
+
+select gender,
+		COUNT(gender) as OrderByGender,
+		SUM(price) as TotalSpentByGender
+from dbo.customerdata
+group by gender
+order by TotalSpentByGender desc
+
+
+--total spent based on amount and percent by gender 
+
+select gender,
+		COUNT(gender) as OrderByGender,
+		SUM(price) as TotalSpentByGender,
+		(SUM(price) * 100) / SUM(SUM(price)) over () as PercentSpentByGender
+from dbo.customerdata
+group by gender
+order by TotalSpentByGender desc
+
+
+
+--calculating average amount spent by gender 
+
+select gender,
+		AVG(price) as AverageSpentByGender
+from dbo.customerdata
+group by gender
+
+
+
+--most expensive transactions top 10
+
+select 
+	top 10 Max(price) as MaxPrice,
+	Category
+from dbo.customerdata cus
+join dbo.Category cat
+	on Cat.category_id = Cus.category_id
+group by Price, category
+order by MaxPrice desc
+
+
+
+--cheapest transactions top 10
+
+select 
+	top 10 Min(price) as MinPrice,
+	Category
+from dbo.customerdata cus
+join dbo.Category cat
+	on Cat.category_id = Cus.category_id
+group by Price, category
+order by MinPrice
+
+
+
+--Find the count and percentage of category bought
+
+select gender, 
+		cat.category,
+		COUNT(category) as CategoryBought
+from dbo.customerdata cus
+join dbo.category cat
+	on cat.category_id = Cus.category_id
+group by gender, category
+order by gender, CategoryBought desc
+
+
+
+---spreading of category contribution
+
+select category,
+		COUNT(Category) as OrderByCategory,
+		COUNT(*) * 100.0 / SUM(COUNT(*)) over() as PercentPerCategory
+from dbo.customerdata cus
+join dbo.Category cat
+	on Cat.category_id = Cus.category_id
+group by category
+
+
+--Average money Spent by Age Group
+
+select  age_group,
+		AVG(price) as AvgSpentbyAgeGroup
+from dbo.customerdata 
+group by age_group
+order by AvgSpentbyAgeGroup desc
+
+
+--seeing the category bought based on age group
+
+select age_group, 
+		cat.category,
+		COUNT(category) as CategoryBought
+from dbo.customerdata cus
+join dbo.category cat
+	on cat.category_id = Cus.category_id
+group by age_group, category
+order by age_group, CategoryBought desc
+
+
+
+---sum of transactions amount paid by method
+
+select  payment_method,
+		SUM(price) as PaidByMethod,
+		(SUM(price) * 100) / SUM(SUM(price)) over () as PercentPaidByMethod
+from dbo.customerdata cus
+join dbo.payment pay
+	on pay.payment_id = cus.payment_id
+group by payment_method
+order by PercentPaidByMethod
+
+
+--seeing which age group using which payment method
+
+select Payment_Method,
+		age_group, 
+		COUNT(age_group) as CountofAgeGroup
+from dbo.customerdata cus
+join dbo.Payment pay
+	on pay.payment_id = cus.payment_id
+group by Payment_Method, age_group
+order by Payment_Method desc
+
+
+--------count of transaction based on age group
+
+select age_group, 
+		COUNT(age_group) as CountofAgeGroup,
+		COUNT(*) * 100.0 / SUM(COUNT(*)) over() as PercentPerCategory
+from dbo.customerdata cus
+join dbo.Payment pay
+	on pay.payment_id = cus.payment_id
+group by age_group
+order by CountofAgeGroup desc
+
+
+--seeing which age group using which payment method
+
+select Payment_Method,
+		age_group,
+		sum(price) as SumPricePerMethod
+from dbo.customerdata cus
+join dbo.Payment pay
+	on pay.payment_id = cus.payment_id
+group by age_group, Payment_Method
+order by payment_method, SumPricePerMethod desc
+
+--total quantity per category 
+--but in this query the quantity will be separated in 5 category each
+--meaning this query does not sum the specific criteria but calculating
+--based on the number of criteria on Customer Data. 
+--hence why im using the CTE so the calculation will be based on the category
+
+select  category,
+		sum(quantity) as TotalQuantity
+from dbo.customerdata cus
+join dbo.category cat
+	on cat.category_id = cus.category_id
+group by category, quantity
+order by category
+
+
+--CTE to sum it in specific criteria
+
+with CTE_QuantityPerCategory
+as 
+(
+select category,
+		sum(quantity) as TotalQuantity
+from dbo.customerdata cus
+join dbo.category cat
+	on cat.category_id = cus.category_id
+group by category 
+)
+select *
+from CTE_QuantityPerCategory
+order by TotalQuantity desc
+
+----------
+
+--counting the total transaction per each quantity
+
+with CTE_QuantityPerCategory
+as 
+(
+select category,
+		count(quantity) as TotalQuantity
+from dbo.customerdata cus
+join dbo.category cat
+	on cat.category_id = cus.category_id
+group by category 
+)
+select *
+from CTE_QuantityPerCategory
+order by TotalQuantity desc
