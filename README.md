@@ -1,4 +1,4 @@
-# Turkey Customer Analysis
+# Data Exploratory Project Turkey Customer Analysis
 **Data Exploratory using SQL**
 
 
