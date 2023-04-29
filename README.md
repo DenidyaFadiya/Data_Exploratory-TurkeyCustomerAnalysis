@@ -7,6 +7,8 @@ In this Project I will be exploring the data to see the analysis on Turkey Custo
 ## Full Query for Data Exploratory Project
 **Check the Full Query for Data Exploratory Project [here](https://github.com/DenidyaFadiya/Data_Exploratory-TurkeyCustomerAnalysis/blob/main/Full%20Query%20-%20Data%20Exploratory%20Turkey%20Customer%20Analysis).**
 
+**Tableau Interactive Dashboard [here](https://public.tableau.com/app/profile/denidya.fadiya/viz/turkeynewvisualization/Dashboard1)**
+
 In this Data Exploratory project I will be cleaning data that I took from [Kaggle Data Source](https://www.kaggle.com/datasets/mehmettahiraslan/customer-shopping-dataset).
 
 ## Exploratory Data Project
@@ -55,6 +57,7 @@ order by invoice_no
 ```
  ![image](https://user-images.githubusercontent.com/129844542/235130218-38b4f066-acd3-4e5f-9c21-056857cfd4f9.png)
 
+
 ![image](https://user-images.githubusercontent.com/129844542/235130425-afd8c5e5-1fd4-4c87-b9f9-e1129630c821.png)
 
 Updating the Age Group
@@ -69,6 +72,8 @@ end as AgeGroup
 from dbo.CustomerData
 ```
   ![image](https://user-images.githubusercontent.com/129844542/235130452-6c6ad518-6951-430b-808c-a6a716f76a18.png)
+  
+  
 ![image](https://user-images.githubusercontent.com/129844542/235130476-ef6b69ba-59bb-4463-aabb-1889326028d9.png)
 
 Updating the query
@@ -111,6 +116,8 @@ join dbo.payment pay
 	on pay.payment_id = cus.payment_id
 ```
 ![image](https://user-images.githubusercontent.com/129844542/235130549-9b9a5ce0-1749-41ad-b480-859a4e26ec80.png)
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235130573-a96cbb42-8fac-4c96-8faa-8ff66b44f6ba.png)
 
 
@@ -121,6 +128,8 @@ select SUM(price) as TotalSpent
 from dbo.customerdata
 ```
  ![image](https://user-images.githubusercontent.com/129844542/235130604-7d5e8fc4-569c-4bad-80fb-600b0be3e6fb.png)
+ 
+ 
 ![image](https://user-images.githubusercontent.com/129844542/235130627-f225d85b-57cb-41ae-8a92-308d8289f72c.png)
 
 
@@ -136,6 +145,8 @@ group by gender
 order by TotalSpentByGender desc
 ```
 ![image](https://user-images.githubusercontent.com/129844542/235131735-bbdc69e0-72f2-4e7c-baf3-3c4afc826e5a.png)
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235131740-079f761f-a031-40ab-8a6b-7736ac37e806.png)
 
 
@@ -148,6 +159,8 @@ from dbo.customerdata
 group by gender
 ```
 ![image](https://user-images.githubusercontent.com/129844542/235131782-0a2209c1-fc85-4495-9ade-67b0f3cbf16c.png)
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235131791-b1f08950-8d82-4b93-a99d-574d13507fa5.png)
 
 
@@ -171,6 +184,8 @@ from CTE_QuantityPerCategory
 order by TotalQuantity desc
 ```
 ![image](https://user-images.githubusercontent.com/129844542/235132024-4c74954c-9a54-474c-9c9c-2850496c40b6.png)
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235132033-b9657861-7c40-4979-a9bd-b845218deb77.png)
 
  
@@ -192,6 +207,8 @@ from CTE_QuantityPerCategory
 order by TotalQuantity desc
 ```
 ![image](https://user-images.githubusercontent.com/129844542/235132061-14260e59-a9e3-4b35-87bb-9a0a72ea6154.png)
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235132076-09d0cfb8-f413-4ebb-a7ba-00e03750112a.png)
 
 
@@ -208,6 +225,8 @@ group by gender, category
 order by gender, CategoryBought desc
 ```
 ![image](https://user-images.githubusercontent.com/129844542/235132697-de1cf264-efa5-4e80-b8e2-39f1094a8e8d.png)
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235132710-fe563acb-7f97-47ac-9f62-7d41c15e21f0.png)
 
 
@@ -224,6 +243,8 @@ group by Price, category
 order by MaxPrice desc
 ```
 ![image](https://user-images.githubusercontent.com/129844542/235132727-6e33635e-e802-4646-9cc6-1fd400b3a374.png)
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235132748-51ef3333-e42c-46ac-9bd0-c032d7d0ac9a.png)
 
 
@@ -240,6 +261,8 @@ group by Price, category
 order by MinPrice
 ```
 ![image](https://user-images.githubusercontent.com/129844542/235132761-5ddd496b-1dd9-4bbe-92c8-c3dc330a5534.png)
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235132782-0ffb149a-bb8b-4868-8cd1-532a307517f6.png)
    
 
@@ -255,6 +278,8 @@ join dbo.Category cat
 group by category
 ```
 ![image](https://user-images.githubusercontent.com/129844542/235132809-fd9f8323-9979-49e4-bf23-b7742b67834d.png)
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235132824-1211b15c-c9f0-4492-a88a-6bf10a175035.png)
 
  
@@ -272,6 +297,8 @@ group by age_group
 order by CountofAgeGroup desc
 ```
 ![image](https://user-images.githubusercontent.com/129844542/235132851-a19ee716-48a1-4673-b21d-1adfed14a17f.png)
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235132860-02c59ec0-2324-4835-b1c0-c5c4d1956cc7.png)
 
 
@@ -288,6 +315,8 @@ group by age_group, category
 order by age_group, CategoryBought desc
 ```
 ![image](https://user-images.githubusercontent.com/129844542/235132877-d873ddc5-a4e4-45fb-ae2f-6b6868fb54d8.png)
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235132898-6da50cf4-673b-471d-b33e-ed835f31e183.png)
    
 
@@ -302,6 +331,8 @@ group by age_group
 order by AvgSpentbyAgeGroup desc
 ```
 ![image](https://user-images.githubusercontent.com/129844542/235132914-76098eab-7fbb-4c84-b835-4dd6e225edd6.png)
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235132931-356037b9-e873-43e1-beac-686f6f7bbff8.png)
  
  
@@ -319,6 +350,8 @@ group by payment_method
 order by PercentPaidByMethod
 ```
 ![image](https://user-images.githubusercontent.com/129844542/235132961-e4cc8609-6301-400c-b09e-01cc85584126.png)
+
+
 ![image](https://user-images.githubusercontent.com/129844542/235133002-a1f3c1e6-7b77-4bf7-8d79-b3cb394271de.png)
 
 
