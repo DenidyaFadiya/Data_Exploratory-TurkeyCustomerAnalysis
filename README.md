@@ -7,7 +7,7 @@ In this Project I will be exploring the data to see the analysis on Turkey Custo
 ## Full Query for Data Exploratory Project
 **Check the Full Query for Data Exploratory Project [here](https://github.com/DenidyaFadiya/Data_Exploratory-TurkeyCustomerAnalysis/blob/main/Full%20Query%20-%20Data%20Exploratory%20Turkey%20Customer%20Analysis).**
 
-**Tableau Interactive Dashboard [here](https://public.tableau.com/app/profile/denidya.fadiya/viz/turkeynewvisualization/Dashboard1)**
+**Tableau Interactive Dashboard [here](https://public.tableau.com/app/profile/denidya.fadiya/viz/turkeynewvisualization/Dashboard1).**
 
 In this Data Exploratory project I will be cleaning data that I took from [Kaggle Data Source](https://www.kaggle.com/datasets/mehmettahiraslan/customer-shopping-dataset).
 
