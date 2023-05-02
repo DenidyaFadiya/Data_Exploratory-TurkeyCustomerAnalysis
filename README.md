@@ -1,10 +1,5 @@
 # SQL Project - Data Exploratory Turkey Customer Analysis
 
-<p align="center">
-  <img width="550" height="400" src="![Shopping](https://user-images.githubusercontent.com/129844542/235700460-951e1817-d7e8-41f9-9eb1-772befb5ea15.jpeg)">
-</p>
-
-
 ![Shopping](https://user-images.githubusercontent.com/129844542/235700651-5eb62bf2-eda0-415b-9af8-47e448694541.jpeg)
 
 In this Project I will be exploring the data to see the analysis on Turkey Customer Analysis by seeing the contribution of each Category, Payment Method, Age Group etc.
