@@ -1,5 +1,9 @@
 # SQL Project - Data Cleaning Project Melbourne House Sales
 
+<p align="center">
+  <img width="550" height="400" src="https://user-images.githubusercontent.com/129844542/235351094-9f97e963-d961-42bd-8013-2c9212e3dc41.jpeg">
+</p>
+
 In this Project I will be exploring the data to see the analysis on Turkey Customer Analysis by seeing the contribution of each Category, Payment Method, Age Group etc.
 
 ## Full Query for Data Exploratory Project
